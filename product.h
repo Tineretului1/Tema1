@@ -58,7 +58,7 @@ public:
         product::price = price;
     } //schimbare pret
     static void search(std::vector <product>& vector, product angajat){
-        for(int i = 0; i<vector.size(); i++)
+        for(long unsigned int i = 0; i<vector.size(); i++)
             if(angajat == vector[i])
                 std::cout<<"exista"<<'\n';
     };
