@@ -54,8 +54,8 @@ public:
     void add(std::vector <product>& vector, product produs) {
         vector.push_back(produs);
     } //adaugare produs
-    void update_price(int price){
-        product::price = price;
+    void update_price(int x){
+        product::price = x;
     } //schimbare pret
     static void search(std::vector <product>& vector, product angajat){
         for(long unsigned int i = 0; i<vector.size(); i++)
