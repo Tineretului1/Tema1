@@ -51,7 +51,7 @@ public:
     bool operator!=(const employee &rhs) const;
 
     static void search_mem(std::vector <employee>& vector, employee angajat){
-        for(int i = 0; i<vector.size(); i++)
+        for(long unsigned int i = 0; i<vector.size(); i++)
             if(angajat == vector[i])
                 std::cout<<"exista"<<'\n';
     };    //cauta angajat
