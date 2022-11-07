@@ -27,24 +27,24 @@ public:
 
     }
 
-    void setName(const std::string &name) {
-        member::name = name;
+    void setName(const std::string &x) {
+        member::name = x;
     }
 
     void setAddrLine(const std::string &addrLine) {
         addr_line = addrLine;
     }
 
-    void setCity(const std::string &city) {
-        member::city = city;
+    void setCity(const std::string &x) {
+        member::city = x;
     }
 
-    void setState(const std::string &state) {
-        member::state = state;
+    void setState(const std::string &x) {
+        member::state = x;
     }
 
-    void setPhone(long phone) {
-        member::phone = phone;
+    void setPhone(long x) {
+        member::phone = x;
     }
 
     friend std::ostream &operator<<(std::ostream &os, const member &members) {

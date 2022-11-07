@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include <vector>
 #include "product.h"
 #include "supplier.h"
@@ -15,7 +15,7 @@
 
 
 int main() {
-    date order;
+    date order{};
     order.day = 10;
     order.month = 10;
     order.year = 2010;
