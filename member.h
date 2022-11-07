@@ -59,8 +59,8 @@ public:
 
     bool operator!=(const member &rhs) const;
 
-    static void add_mem(std::vector <member>& vector, member membru); //adauga membru
-    static void search_mem(std::vector <member>& vector, member membru){
+    void add_mem(std::vector <member>& vector, member membru); //adauga membru
+    void search_mem(std::vector <member>& vector, member membru){
         for(long unsigned int i = 0; i<vector.size(); i++)
             if(membru == vector[i])
                 std::cout<<"exista"<<'\n';

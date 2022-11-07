@@ -28,10 +28,10 @@ int main() {
     member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru3(1, "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
-    member::add_mem(membrii, membru1);
-    member::add_mem(membrii, membru2);
-    member::add_mem(membrii, membru3);
-    member::search_mem(membrii,membru2);
+    membru1.add_mem(membrii, membru1);
+    membru2.add_mem(membrii, membru2);
+    membru3.add_mem(membrii, membru3);
+    membru2.search_mem(membrii, membru2);
     sale vanzari(1, 2, 3, 4, 5, order);
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
     udon.discount(20);
