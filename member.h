@@ -61,7 +61,7 @@ public:
 
     static void add_mem(std::vector <member>& vector, member membru); //adauga membru
     static void search_mem(std::vector <member>& vector, member membru){
-        for(int i = 0; i<vector.size(); i++)
+        for(long unsigned int i = 0; i<vector.size(); i++)
             if(membru == vector[i])
                 std::cout<<"exista"<<'\n';
     }; //cauta membru
