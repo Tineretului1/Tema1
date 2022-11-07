@@ -50,7 +50,7 @@ public:
 
     bool operator!=(const employee &rhs) const;
 
-    static void search_mem(std::vector <employee>& vector, employee angajat){
+    void search_mem(std::vector <employee>& vector, employee angajat){
         for(long unsigned int i = 0; i<vector.size(); i++)
             if(angajat == vector[i])
                 std::cout<<"exista"<<'\n';
@@ -58,10 +58,10 @@ public:
     void assign_mgr_stat(std::string status){
         setMgrStatus(status);
     }; //rol manager
-    static void display(employee angajat);//afiseaza angajat
-    static void add_emp(std::vector<employee> &vector, employee angajat);
+    void display(employee angajat);//afiseaza angajat
+    void add_emp(std::vector<employee> &vector, employee angajat);
 
-    static void update_sal(employee angajat, long newSalary);
+    void update_sal(employee angajat, long newSalary);
 
 
 };

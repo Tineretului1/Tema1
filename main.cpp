@@ -24,7 +24,7 @@ int main() {
     purchase cumparaturi(1, 1, 1, 100, order, 20, 'Y', 3);
     supplier aprovizionare(1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
-    employee::display(angajat);
+    angajat.display(angajat);
     member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru3(1, "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
