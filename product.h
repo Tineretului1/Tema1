@@ -5,6 +5,8 @@
 #ifndef TEMA1_PRODUCT_H
 #define TEMA1_PRODUCT_H
 #include <ostream>
+#include <vector>
+#include <iostream>
 
 class product
 {
@@ -15,6 +17,11 @@ class product
     int qty; //cantitate
     int price; //pret
 public:
+
+    int getPrice() const {
+        return price;
+    }
+
     product(int id, const std::string &name, const std::string &country, int qty, int price) : id(id), name(name), country(country), qty(qty),
                                                                                      price(price) {}
 
@@ -39,13 +46,25 @@ public:
     bool operator!=(const product &rhs) const {
         return !(rhs == *this);
     }
-
-    void add(); //adaugare produs
-    void update_price(); //schimbare pret
-    void search(); //cautam produs in DB
-    void update(); //modificam produs
-    void display(); //afisam produs
+    void discount(int percent){
+        int oldPrice = getPrice();
+        int newPrice = (oldPrice*100 - oldPrice*percent)/100;
+        product::price = newPrice;
+    };
+    void add(std::vector <product>& vector, product produs) {
+        vector.push_back(produs);
+    } //adaugare produs
+    void update_price(int price){
+        product::price = price;
+    } //schimbare pret
+    static void search(std::vector <product>& vector, product angajat){
+        for(int i = 0; i<vector.size(); i++)
+            if(angajat == vector[i])
+                std::cout<<"exista"<<'\n';
+    };
+    void display(){
+        std::cout<<id;
+    } //afisam produs
 };
-
 
 #endif //TEMA1_PRODUCT_H

@@ -4,10 +4,22 @@
 
 #ifndef TEMA1_DATE_H
 #define TEMA1_DATE_H
-typedef struct
+class date
 {
+public:
     int day;
     int month;
     int year;
-}date;
+
+    bool operator==(const date &rhs) const {
+        return day == rhs.day &&
+               month == rhs.month &&
+               year == rhs.year;
+    }
+
+    bool operator!=(const date &rhs) const {
+        return !(rhs == *this);
+    }
+
+};
 #endif //TEMA1_DATE_H
