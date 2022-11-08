@@ -61,7 +61,7 @@ public:
     void display(employee angajat);//afiseaza angajat
     void add_emp(std::vector<employee> &vector, employee angajat);
 
-    void update_sal(employee angajat, long newSalary);
+//    void update_sal(employee angajat, long newSalary);
 
 
 };

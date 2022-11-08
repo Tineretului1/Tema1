@@ -66,7 +66,7 @@ public:
                 std::cout<<"exista"<<'\n';
     }; //cauta membru
 
-    void update(member membru, std::string newName, std::string newAddr, std::string newCit, long newPhn);
+//    void update(member membru, std::string newName, std::string newAddr, std::string newCit, long newPhn);
 };
 
 
