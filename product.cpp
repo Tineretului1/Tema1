@@ -11,3 +11,6 @@ product &product::operator=(const product &other) {
     price = other.price;
     return *this;
 }
+product::product(const product& other) : id{other.id}, name{other.name}, country{other.country}, qty{other.qty}, price{other.price} {
+    std::cout << "Constr de copiere Student\n";
+}
