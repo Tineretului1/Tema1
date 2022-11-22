@@ -25,6 +25,8 @@ int main() {
     supplier aprovizionare(1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
     angajat.display(angajat);
+    //angajat.add_emp();
+    angajat.setSalary(1000);
     member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru3(1, "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
@@ -37,10 +39,10 @@ int main() {
     udon.discount(20);
     produs.display();
     //std::cout<<udon;
-    sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
-    matcha green(5,"aloe china","china",5,5,'A');
-    tea earl(6,"earl gray","china",3,100,"black");
-    noodle riced(3,"blackNOOdle","vietnam",4,15,'A');
+    //sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
+    //matcha green(5,"aloe china","china",5,5,'A');
+    //tea earl(6,"earl gray","china",3,100,"black");
+    //noodle riced(3,"blackNOOdle","vietnam",4,15,'A');
 
     //std::cout << produs << std::endl;
     //std::cout << cumparaturi << std::endl;

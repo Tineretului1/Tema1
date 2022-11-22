@@ -55,11 +55,11 @@ public:
             if(angajat == vector[i])
                 std::cout<<"exista"<<'\n';
     };    //cauta angajat
-    void assign_mgr_stat(std::string status){
+    void assign_mgr_stat(const std::string status){
         setMgrStatus(status);
     }; //rol manager
     void display(employee angajat);//afiseaza angajat
-    void add_emp(std::vector<employee> &vector, employee angajat);
+    //void add_emp(std::vector<employee> &vector, employee angajat);
 
 //    void update_sal(employee angajat, long newSalary);
 
