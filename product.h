@@ -35,6 +35,8 @@ public:
         return os;
     }
 
+    product& operator=(const product& other);
+
     bool operator==(const product &rhs) const {
         return id == rhs.id &&
                name == rhs.name &&

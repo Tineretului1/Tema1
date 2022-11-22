@@ -3,3 +3,11 @@
 //
 
 #include "product.h"
+product &product::operator=(const product &other) {
+    id = other.id;
+    name = other.name;
+    country = other.country;
+    qty = other.qty;
+    price = other.price;
+    return *this;
+}

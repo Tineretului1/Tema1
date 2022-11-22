@@ -4,7 +4,4 @@
 
 #include "noodle.h"
 
-noodle &noodle::operator=(const noodle &other) {
-    cooked = other.cooked;
-    return *this;
-}
+
