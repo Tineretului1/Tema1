@@ -28,6 +28,7 @@ int main() {
     //angajat.add_emp();
     angajat.setSalary(1000);
     member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
+    member aux = membru1;
     member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru3(1, "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     membru1.add_mem(membrii, membru1);
