@@ -31,6 +31,7 @@ int main() {
     member aux = membru1;
     member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member membru3(1, "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
+    aux.add_mem(membrii, aux);
     membru1.add_mem(membrii, membru1);
     membru2.add_mem(membrii, membru2);
     membru3.add_mem(membrii, membru3);
