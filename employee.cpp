@@ -14,7 +14,7 @@ void employee::setSalary(long x) {
 //void employee::update_sal(employee angajat, long int newSalary) {
 //    angajat.setSalary(newSalary);
 //}
-void employee::display(const employee angajat) {
+void employee::display(const employee &angajat) {
     std::cout << angajat << '\n';
 }
 
