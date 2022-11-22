@@ -17,6 +17,8 @@ public:
                                                                                                                     price),
                                                                                                             cooked(cooked) {}
 
+    noodle& operator=(const noodle& other);
+
     bool operator==(const noodle &rhs) const {
         return static_cast<const product &>(*this) == static_cast<const product &>(rhs) &&
                cooked == rhs.cooked;

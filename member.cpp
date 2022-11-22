@@ -6,6 +6,7 @@
 void member::add_mem(std::vector <member>& vector, member membru) {
     vector.push_back(membru);
 }
+
 //void member::update(member membru,std::string newName,std::string newAddr, std::string newCit, long newPhn) {
 //    membru.setAddrLine(newAddr);
 //    membru.setCity(newCit);

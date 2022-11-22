@@ -55,6 +55,8 @@ public:
         return os;
     }
 
+
+
     bool operator==(const member &rhs) const;
 
     bool operator!=(const member &rhs) const;
