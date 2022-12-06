@@ -16,7 +16,7 @@ class supplier
     std::string city; //oras produc.
     std::string country; //tara firma produc.
 public:
-    supplier(product produs, int id, const std::string &name, long phn, const std::string &addrLine1,
+    supplier(const product &produs, int id, const std::string &name, long phn, const std::string &addrLine1,
              const std::string &city, const std::string &country)
             : produs(produs), id(id), name(name), phn(phn), addr_line1(addrLine1), city(city), country(country) {}
 
