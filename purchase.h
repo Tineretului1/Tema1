@@ -6,10 +6,12 @@
 #define TEMA1_PURCHASE_H
 #include <ostream>
 #include "date.h"
+#include <vector>
+#include "product.h"
 class purchase
 {
+    std::vector <product> products;
     int ord_id;			//Primary Key
-    int product_id;		//produs
     int sup_id;			//firma producatoare
     int qty;
     date dt_ordered;
@@ -17,16 +19,16 @@ class purchase
     char received;
     int inv;
 public:
-    purchase(int ordId, int productId, int supId, int qty, const date &dtOrdered, int eta, char received, int inv)
-            : ord_id(ordId), product_id(productId), sup_id(supId), qty(qty), dt_ordered(dtOrdered), eta(eta),
-              received(received), inv(inv) {}
+    purchase(const std::vector <product> &products, int ordId, int supId, int qty, const date &dtOrdered, int eta,
+             char received, int inv) : products(products), ord_id(ordId), sup_id(supId), qty(qty),
+                                       dt_ordered(dtOrdered), eta(eta), received(received), inv(inv) {}
 
     virtual ~purchase() {
 
     }
 
     friend std::ostream &operator<<(std::ostream &os, const purchase &purchases) {
-        os << "ord_id: " << purchases.ord_id << " product_id: " << purchases.product_id << " sup_id: "
+        os << "ord_id: " << purchases.ord_id  << " sup_id: "
            << purchases.sup_id << " qty: " << purchases.qty << " dt_ordered: " << purchases.dt_ordered.day<<"."
            << purchases.dt_ordered.month <<"."<< purchases.dt_ordered.year << " eta: "
            << purchases.eta << " received: " << purchases.received << " inv: " << purchases.inv;

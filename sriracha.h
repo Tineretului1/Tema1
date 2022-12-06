@@ -8,6 +8,7 @@
 #include <ostream>
 
 class sriracha: product{
+
     std::string bottle;//glass or plastic
 public:
     sriracha(int id, const std::string &name, const std::string &country, int qty, int price, const std::string &bottle)

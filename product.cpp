@@ -14,3 +14,7 @@ product &product::operator=(const product &other) {
 product::product(const product& other) : id{other.id}, name{other.name}, country{other.country}, qty{other.qty}, price{other.price} {
     std::cout << "Constr de copiere Student\n";
 }
+
+const std::string &product::getName() const {
+    return name;
+}

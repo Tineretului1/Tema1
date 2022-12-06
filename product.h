@@ -22,6 +22,8 @@ public:
         return price;
     }
 
+    const std::string &getName() const;
+
     product(int id, const std::string &name, const std::string &country, int qty, int price) : id(id), name(name), country(country), qty(qty),
                                                                                      price(price) {}
 

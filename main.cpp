@@ -20,9 +20,16 @@ int main() {
     order.month = 10;
     order.year = 2010;
     std::vector <member> membrii;
-    product produs(1,"rares","romania",10,100);
-    purchase cumparaturi(1, 1, 1, 100, order, 20, 'Y', 3);
-    supplier aprovizionare(1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
+    std::vector <product> produse;
+    product produs1(1,"rares","romania",10,100);
+    produse.push_back(produs1);
+    product produs2(1,"rares","romania",10,100);
+    produse.push_back(produs2);
+    product produs3(1,"rares","romania",10,100);
+    produse.push_back(produs3);
+
+    purchase cumparaturi(produse, 1, 1, 100, order, 20, 'Y', 3);
+    supplier aprovizionare(produs1, 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
     angajat.display(angajat);
     //angajat.add_emp();
@@ -39,7 +46,7 @@ int main() {
     sale vanzari(1, 2, 3, 4, 5, order);
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
     udon.discount(20);
-    produs.display();
+    produs1.display();
     //std::cout<<udon;
     //sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
     //matcha green(5,"aloe china","china",5,5,'A');
