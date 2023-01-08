@@ -7,7 +7,7 @@
 #include "product.h"
 #include <ostream>
 
-class sriracha: product{
+class sriracha: public product{
 
     std::string bottle;//glass or plastic
 public:
@@ -15,7 +15,7 @@ public:
             : product(id, name, country, qty, price), bottle(bottle) {}
 
     bool operator==(const sriracha &rhs) const {
-        return static_cast<const product &>(*this) == static_cast<const product &>(rhs) &&
+        return dynamic_cast<const product &>(*this) == dynamic_cast<const product &>(rhs) &&
                bottle == rhs.bottle;
     }
 
@@ -24,7 +24,7 @@ public:
     }
 
     friend std::ostream &operator<<(std::ostream &os, const sriracha &sriracha) {
-        os << static_cast<const product &>(sriracha) << " bottle: " << sriracha.bottle;
+        os << dynamic_cast<const product &>(sriracha) << " bottle: " << sriracha.bottle;
         return os;
     }
 };

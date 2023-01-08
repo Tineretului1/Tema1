@@ -7,7 +7,7 @@
 #include "product.h"
 #include <ostream>
 
-class tea:product{
+class tea:public product{
     std::string type;//green black white
 public:
     tea(int id, const std::string &name, const std::string &country, int qty, int price, const std::string &type)

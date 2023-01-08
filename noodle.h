@@ -7,7 +7,7 @@
 #include "product.h"
 #include <ostream>
 
-class noodle:product{
+class noodle:public product{
     char cooked;
 public:
     noodle(int id, const std::string &name, const std::string &country, int qty, int price, char cooked) : product(id,

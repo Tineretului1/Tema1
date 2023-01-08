@@ -1,5 +1,6 @@
 
 #include <vector>
+#include <memory>
 #include "product.h"
 #include "supplier.h"
 #include "purchase.h"
@@ -28,6 +29,8 @@ int main() {
     product produs3(1,"rares","romania",10,100);
     produse.push_back(produs3);
 
+    std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
+
     purchase cumparaturi(produse, 1, 1, 100, order, 20, 'Y', 3);
     supplier aprovizionare(produs1, 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
@@ -45,10 +48,18 @@ int main() {
     membru2.search_mem(membrii, membru2);
     sale vanzari(1, 2, 3, 4, 5, order);
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-    udon.discount(20);
+    int procent;
+    std::cin>>procent;
+    try{
+        udon.discount(procent);
+    }
+    catch (const char* msg) {
+        std::cerr << msg << std::endl;
+    }
     produs1.display();
     //std::cout<<udon;
-    //sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
+    sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
+    std::cout<<goose;
     //matcha green(5,"aloe china","china",5,5,'A');
     //tea earl(6,"earl gray","china",3,100,"black");
     //noodle riced(3,"blackNOOdle","vietnam",4,15,'A');

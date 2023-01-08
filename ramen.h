@@ -7,7 +7,7 @@
 #include "product.h"
 #include <ostream>
 
-class ramen: protected product{
+class ramen: public product{
     std::string flavour;//spicy
 public:
     ramen(int id, const std::string &name, const std::string &country, int qty, int price, const std::string &flavour)

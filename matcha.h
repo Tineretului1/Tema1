@@ -7,7 +7,7 @@
 #include "product.h"
 #include <ostream>
 
-class matcha:product{
+class matcha:public product{
     char milk;//A-yes F-no
 public:
     matcha(int id, const std::string &name, const std::string &country, int qty, int price, char milk) : product(id,

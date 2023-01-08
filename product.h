@@ -51,9 +51,13 @@ public:
         return !(rhs == *this);
     }
     void discount(int percent){
-        int oldPrice = getPrice();
-        int newPrice = (oldPrice*100 - oldPrice*percent)/100;
-        product::price = newPrice;
+        if(percent>99)
+            throw "Discount peste 100";
+        else {
+            int oldPrice = getPrice();
+            int newPrice = (oldPrice * 100 - oldPrice * percent) / 100;
+            product::price = newPrice;
+        }
     };
     void add(std::vector <product>& vector, product produs) {
         vector.push_back(produs);
