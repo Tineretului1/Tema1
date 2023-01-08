@@ -23,13 +23,14 @@ int main() {
     std::vector <member> membrii;
     std::vector <product> produse;
     product produs1(1,"rares","romania",10,100);
-    produse.push_back(produs1);
+    std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
+    produse.push_back(*MyProdus1);
     product produs2(1,"rares","romania",10,100);
     produse.push_back(produs2);
     product produs3(1,"rares","romania",10,100);
     produse.push_back(produs3);
 
-    std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
+
 
     purchase cumparaturi(produse, 1, 1, 100, order, 20, 'Y', 3);
     supplier aprovizionare(produs1, 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
@@ -48,8 +49,7 @@ int main() {
     membru2.search_mem(membrii, membru2);
     sale vanzari(1, 2, 3, 4, 5, order);
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-    int procent;
-    std::cin>>procent;
+    int procent = 10;
     try{
         udon.discount(procent);
     }
