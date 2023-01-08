@@ -49,9 +49,9 @@ int main() {
     membru2.search_mem(membrii, membru2);
     sale vanzari(1, 2, 3, 4, 5, order);
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-    int procent = 10;
     try{
-        udon.discount(procent);
+        udon.discount(10);
+        //daca e mai mare de 100 crapa
     }
     catch (const char* msg) {
         std::cerr << msg << std::endl;
