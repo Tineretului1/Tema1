@@ -25,15 +25,18 @@ int main() {
     std::vector <product> produse;
     std::vector <product*> taitei;
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-
-    taitei.push_back(new matcha(1,"mogyi","japonia",100,5,'A'));
-    taitei.push_back(new ramen(1,"magi","coorea de sud",5,9,"vita"));
+    matcha *pt = new matcha(1,"mogyi","japonia",100,5,'A');
+    ramen *rm = new ramen(1,"magi","coorea de sud",5,9,"vita");
+    taitei.push_back(pt);
+    taitei.push_back(rm);
     (*taitei[1]).display();
     auto* bp = dynamic_cast<ramen*>(taitei[1]);
     auto* mt = dynamic_cast<matcha*>(taitei[0]);
     (*mt).discount(10);
     std::cout<<*mt<<std::endl;
     std::cout<<*bp<<std::endl;
+    delete pt;
+    delete rm;
     std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
     produse.push_back(*MyProdus1);
     product produs2(1,"rares","romania",10,100);
