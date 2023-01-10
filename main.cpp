@@ -35,10 +35,8 @@ int main() {
     std::cout<<*mt<<std::endl;
     std::cout<<*bp<<std::endl;
     std::cout<<*taitei[1];
-    taitei.pop_back();
-    taitei.pop_back();
-    taitei.pop_back();
-
+    delete(taitei[1]);
+    delete(taitei[2]);
     std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
     produse.push_back(*MyProdus1);
     product produs2(1,"rares","romania",10,100);
