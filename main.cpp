@@ -25,10 +25,9 @@ int main() {
     std::vector <product> produse;
     std::vector <product*> taitei;
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-    matcha unu(1,"mogyi","japonia",100,5,'A');
-    ramen doi(1,"magi","coorea de sud",5,9,"vita");
-    taitei.push_back(&unu);
-    taitei.push_back(&doi);
+
+    taitei.push_back(new matcha(1,"mogyi","japonia",100,5,'A'));
+    taitei.push_back(new ramen(1,"magi","coorea de sud",5,9,"vita"));
     (*taitei[1]).display();
     ramen* bp = dynamic_cast<ramen*>(taitei[1]);
     matcha* mt = dynamic_cast<matcha*>(taitei[0]);
