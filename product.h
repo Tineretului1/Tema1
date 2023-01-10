@@ -17,7 +17,7 @@ public:
 };
 class product
 {
-    const int id;	//Primary Key, in caz ca o sa implementez si un
+    int id;	//Primary Key, in caz ca o sa implementez si un
     //db cu produse
     std::string name;
     std::string country; //chinez, vietnamez

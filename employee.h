@@ -10,7 +10,7 @@
 
 class employee
 {
-    const int id;				//Primary Key
+    int id;				//Primary Key
     std::string name;    //nume agajat
     std::string addr_line; //adresa angajat
     std::string city; //oras angajat
