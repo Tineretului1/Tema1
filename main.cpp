@@ -25,10 +25,10 @@ int main() {
     std::vector <product> produse;
     std::vector <product*> taitei;
     ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-
-    taitei.push_back(new matcha(1,"mogyi","japonia",100,5,'A'));
-    taitei.push_back(new ramen(1,"magi","coorea de sud",5,9,"vita"));
-    taitei.push_back(new ramen(1,"mogyi","china",30,3,"peste"));
+    matcha unu(1,"mogyi","japonia",100,5,'A');
+    ramen doi(1,"magi","coorea de sud",5,9,"vita");
+    taitei.push_back(&unu);
+    taitei.push_back(&doi);
     (*taitei[1]).display();
     ramen* bp = dynamic_cast<ramen*>(taitei[1]);
     matcha* mt = dynamic_cast<matcha*>(taitei[0]);
@@ -66,9 +66,8 @@ int main() {
     membru2.search_mem(membrii, membru2);
     sale vanzari(1, 2, 3, 4, 5, order);
     udon.display();
-    int procent = 101;
     try{
-        udon.discount(procent);
+        udon.discount(101);
     }
     catch (MyException& e) {
         std::cout << e.what() << std::endl;
