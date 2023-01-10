@@ -7,15 +7,24 @@
 #include <ostream>
 #include <vector>
 #include <iostream>
-
+class MyException : public std::exception
+{
+public:
+    const char * what () const throw ()
+    {
+        return "Eroare discount";
+    }
+};
 class product
 {
-    int id;	//Primary Key, in caz ca o sa implementez si un
+    const int id;	//Primary Key, in caz ca o sa implementez si un
     //db cu produse
     std::string name;
     std::string country; //chinez, vietnamez
     int qty; //cantitate
-    int price; //pret
+    //pret
+protected:
+    float price;
 public:
 
     int getPrice() const {
@@ -24,7 +33,7 @@ public:
 
     const std::string &getName() const;
 
-    product(int id, const std::string &name, const std::string &country, int qty, int price) : id(id), name(name), country(country), qty(qty),
+    product(int id, const std::string &name, const std::string &country, int qty, float price) : id(id), name(name), country(country), qty(qty),
                                                                                      price(price) {}
 
     virtual ~product() {
@@ -50,15 +59,16 @@ public:
     bool operator!=(const product &rhs) const {
         return !(rhs == *this);
     }
-    void discount(int percent){
+    virtual void discount(int percent){
         if(percent>99)
-            throw "Discount peste 100";
+            throw MyException();
         else {
-            int oldPrice = getPrice();
-            int newPrice = (oldPrice * 100 - oldPrice * percent) / 100;
+            float oldPrice = getPrice();
+            float newPrice = (oldPrice * 100 - oldPrice * percent) / 100;
             product::price = newPrice;
         }
-    };
+    }
+
     void add(std::vector <product>& vector, product produs) {
         vector.push_back(produs);
     } //adaugare produs
@@ -69,8 +79,9 @@ public:
         for(long unsigned int i = 0; i<vector.size(); i++)
             if(angajat == vector[i])
                 std::cout<<"exista"<<'\n';
-    };
-    void display(){
+    }
+
+    virtual void display(){
         std::cout<<id;
     } //afisam produs
 };

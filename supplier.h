@@ -9,7 +9,7 @@
 class supplier
 {
     product produs;
-    int id;				//Primary Key
+    const int id;				//Primary Key
     std::string name; //nume producator
     long int phn; //nr telefon producator
     std::string addr_line1; //adresa

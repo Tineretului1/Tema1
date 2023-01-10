@@ -33,6 +33,11 @@ public:
     void discount(int percent){
         product::discount(percent);
     };
+    void display() override{
+        std::cout<<"Id ramen: ";
+        product::display();
+        std::cout<<std::endl;
+    }
 };
 
 

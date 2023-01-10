@@ -9,9 +9,9 @@
 
 class sale
 {
-    int invoice_id;
-    int member_id;
-    int product_id;
+    const int invoice_id;
+    const int member_id;
+    const int product_id;
     int qty;
     int amount;
     date date_s;

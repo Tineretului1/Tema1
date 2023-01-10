@@ -10,7 +10,7 @@
 class matcha:public product{
     char milk;//A-yes F-no
 public:
-    matcha(int id, const std::string &name, const std::string &country, int qty, int price, char milk) : product(id,
+    matcha(int id, const std::string &name, const std::string &country, int qty, float price, char milk) : product(id,
                                                                                                                  name,
                                                                                                                  country,
                                                                                                                  qty,
@@ -29,6 +29,15 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const matcha &matcha) {
         os << static_cast<const product &>(matcha) << " milk: " << matcha.milk;
         return os;
+    }
+    void discount(int percent) override{
+        if(percent>20)
+            throw "Discount peste 20";
+        else {
+            float oldPrice = getPrice();
+            float newPrice = (oldPrice * 100 - oldPrice * percent) / 100;
+            matcha::price = newPrice;
+        }
     }
 };
 

@@ -10,7 +10,7 @@
 #include "date.h"
 class member //magazin membership-only ca la Metro
 {
-    int id;				//Primary Key
+    const int id;				//Primary Key
     std::string name;
     std::string addr_line;
     std::string city;

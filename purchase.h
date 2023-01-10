@@ -11,8 +11,8 @@
 class purchase
 {
     std::vector <product> products;
-    int ord_id;			//Primary Key
-    int sup_id;			//firma producatoare
+    const int ord_id;			//Primary Key
+    const int sup_id;			//firma producatoare
     int qty;
     date dt_ordered;
     int eta;

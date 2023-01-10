@@ -1,4 +1,4 @@
-
+#include <exception>
 #include <vector>
 #include <memory>
 #include "product.h"
@@ -20,9 +20,26 @@ int main() {
     order.day = 10;
     order.month = 10;
     order.year = 2010;
+
     std::vector <member> membrii;
     std::vector <product> produse;
-    product produs1(1,"rares","romania",10,100);
+    std::vector <product*> taitei;
+    ramen udon(1,"cico","south korea",5,300,"spicy chicken");
+
+    taitei.push_back(new matcha(1,"mogyi","japonia",100,5,'A'));
+    taitei.push_back(new ramen(1,"magi","coorea de sud",5,9,"vita"));
+    taitei.push_back(new ramen(1,"mogyi","china",30,3,"peste"));
+    (*taitei[1]).display();
+    ramen* bp = dynamic_cast<ramen*>(taitei[1]);
+    matcha* mt = dynamic_cast<matcha*>(taitei[0]);
+    (*mt).discount(10);
+    std::cout<<*mt<<std::endl;
+    std::cout<<*bp<<std::endl;
+    std::cout<<*taitei[1];
+    taitei.pop_back();
+    taitei.pop_back();
+    taitei.pop_back();
+
     std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
     produse.push_back(*MyProdus1);
     product produs2(1,"rares","romania",10,100);
@@ -33,7 +50,7 @@ int main() {
 
 
     purchase cumparaturi(produse, 1, 1, 100, order, 20, 'Y', 3);
-    supplier aprovizionare(produs1, 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
+    supplier aprovizionare(*MyProdus1, 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
     angajat.display(angajat);
     //angajat.add_emp();
@@ -48,15 +65,15 @@ int main() {
     membru3.add_mem(membrii, membru3);
     membru2.search_mem(membrii, membru2);
     sale vanzari(1, 2, 3, 4, 5, order);
-    ramen udon(1,"cico","south korea",5,300,"spicy chicken");
+    udon.display();
+    int procent = 101;
     try{
-        udon.discount(10);
-        //daca e mai mare de 100 crapa
+        udon.discount(procent);
     }
-    catch (const char* msg) {
-        std::cerr << msg << std::endl;
+    catch (MyException& e) {
+        std::cout << e.what() << std::endl;
     }
-    produs1.display();
+    (*MyProdus1).display();
     //std::cout<<udon;
     sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
     std::cout<<goose;
