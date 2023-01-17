@@ -37,6 +37,7 @@ int main() {
     supplier aprovizionare(*produse1[0], 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
     std::cout<<angajat<<std::endl;
+    angajat.setSalary(10);
     angajat.display(angajat);
     member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member aux = membru1;
