@@ -1,4 +1,3 @@
-#include <exception>
 #include <vector>
 #include <memory>
 #include "product.h"
@@ -22,36 +21,23 @@ int main() {
     order.year = 2010;
 
     std::vector <member> membrii;
-    std::vector <product> produse;
-    std::vector <product*> taitei;
-    ramen udon(1,"cico","south korea",5,300,"spicy chicken");
-    matcha *pt = new matcha(1,"mogyi","japonia",100,5,'A');
-    ramen *rm = new ramen(1,"magi","coorea de sud",5,9,"vita");
-    taitei.push_back(pt);
-    taitei.push_back(rm);
-    (*taitei[1]).display();
-    auto* bp = dynamic_cast<ramen*>(taitei[1]);
-    auto* mt = dynamic_cast<matcha*>(taitei[0]);
-    (*mt).discount(10);
-    std::cout<<*mt<<std::endl;
-    std::cout<<*bp<<std::endl;
-    delete pt;
-    delete rm;
-    std::unique_ptr<product>MyProdus1 = std::make_unique<product>(product(1,"rares","romania",10,100));
-    produse.push_back(*MyProdus1);
-    product produs2(1,"rares","romania",10,100);
-    produse.push_back(produs2);
-    product produs3(1,"rares","romania",10,100);
-    produse.push_back(produs3);
 
+    std::vector <std::shared_ptr<product>> produse1;
+    int qty=100, price=5;
+    std::string name="moji",country="china";
+    produse1.emplace_back(std::make_shared<ramen>(1,name,country,qty,price,"gaina"));
+    produse1.emplace_back(std::make_shared<matcha>(1,name,country,qty,price,'a'));
+    produse1.emplace_back(std::make_shared<tea>(1,name,country,qty,price,"green"));
+    produse1.emplace_back(std::make_shared<noodle>(1,name,country,qty,price,'y'));
+    produse1.emplace_back(std::make_shared<sriracha>(1,name,country,100,10,"plastic"));
+    produse1[2]->display();
+    std::cout<<*std::dynamic_pointer_cast<noodle>(produse1[3])<<std::endl;
 
-
-    purchase cumparaturi(produse, 1, 1, 100, order, 20, 'Y', 3);
-    supplier aprovizionare(*MyProdus1, 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
+    purchase cumparaturi(produse1, 1, 1, 100, order, 20, 'Y', 3);
+    supplier aprovizionare(*produse1[0], 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
+    std::cout<<angajat<<std::endl;
     angajat.display(angajat);
-    //angajat.add_emp();
-    angajat.setSalary(1000);
     member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member aux = membru1;
     member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
@@ -61,27 +47,12 @@ int main() {
     membru2.add_mem(membrii, membru2);
     membru3.add_mem(membrii, membru3);
     membru2.search_mem(membrii, membru2);
-    sale vanzari(1, 2, 3, 4, 5, order);
-    udon.display();
     try{
-        udon.discount(101);
+        produse1[1]->discount(30);
     }
-    catch (MyException& e) {
-        std::cout << e.what() << std::endl;
+    catch (...){
+        std::cout<<"nu a mers";
     }
-    (*MyProdus1).display();
-    //std::cout<<udon;
-    sriracha goose(2,"flying goose","thailand", 5, 15, "glass");
-    std::cout<<goose;
-    //matcha green(5,"aloe china","china",5,5,'A');
-    //tea earl(6,"earl gray","china",3,100,"black");
-    //noodle riced(3,"blackNOOdle","vietnam",4,15,'A');
-
-    //std::cout << produs << std::endl;
-    //std::cout << cumparaturi << std::endl;
-    //std::cout << aprovizionare << std::endl;
-    //std::cout << angajat << std::endl;
-    //std::cout << membrii[1] << std::endl;
 
     return 0;
 }

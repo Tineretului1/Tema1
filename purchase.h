@@ -7,10 +7,11 @@
 #include <ostream>
 #include "date.h"
 #include <vector>
+#include <memory>
 #include "product.h"
 class purchase
 {
-    std::vector <product> products;
+    std::vector <std::shared_ptr<product>> products;
     const int ord_id;			//Primary Key
     const int sup_id;			//firma producatoare
     int qty;
@@ -19,9 +20,10 @@ class purchase
     char received;
     int inv;
 public:
-    purchase(const std::vector <product> &products, int ordId, int supId, int qty, const date &dtOrdered, int eta,
-             char received, int inv) : products(products), ord_id(ordId), sup_id(supId), qty(qty),
-                                       dt_ordered(dtOrdered), eta(eta), received(received), inv(inv) {}
+    purchase(const std::vector<std::shared_ptr<product>> &products, const int ordId, const int supId, int qty,
+             const date &dtOrdered, int eta, char received, int inv) : products(products), ord_id(ordId), sup_id(supId),
+                                                                       qty(qty), dt_ordered(dtOrdered), eta(eta),
+                                                                       received(received), inv(inv) {}
 
     virtual ~purchase() {
 
