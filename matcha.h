@@ -6,7 +6,10 @@
 #define TEMA1_MATCHA_H
 #include "product.h"
 #include <ostream>
-class eroare_discount_matcha:public MyException{using MyException::MyException;};
+
+class eroare_discount_matcha:public myException{
+    using myException::myException;
+};
 class matcha:public product{
     char milk;//A-yes F-no
 public:

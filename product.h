@@ -8,8 +8,8 @@
 #include <vector>
 #include <iostream>
 
-class MyException : public std::runtime_error { using std::runtime_error::runtime_error; };
-class eroare_discount_produs: public MyException {using MyException::MyException;};
+class myException : public std::runtime_error { using std::runtime_error::runtime_error; };
+class eroare_discount_produs: public myException {using myException::myException;};
 class product
 {
     int id;	//Primary Key, in caz ca o sa implementez si un

@@ -32,8 +32,13 @@ int main() {
     produse1.emplace_back(std::make_shared<noodle>(1,name,country,qty,price,'y'));
     produse1.emplace_back(std::make_shared<sriracha>(1,name,country,100,10,"plastic"));
     produse1[2]->display();
-    std::dynamic_pointer_cast<matcha>(produse1[1])->discount(20);
-    //discount 2 lei peste reducerea initiala->discount(19);
+    try {
+        std::dynamic_pointer_cast<matcha>(produse1[1])->discount(20);
+
+    }//discount 2 lei peste reducerea initiala->discount(19);
+    catch (const myException &e){
+        std::cout<<e.what()<<std::endl;
+    }
     std::cout<<*produse1[1]<<std::endl;
 
     purchase cumparaturi(produse1, 1, 1, 100, order, 20, 'Y', 3);
@@ -55,7 +60,7 @@ int main() {
     try{
         produse1[1]->discount(30);
     }
-    catch (eroare_discount_matcha &e){
+    catch (const myException &e){
         std::cout<<e.what();
     }
 
