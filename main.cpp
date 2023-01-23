@@ -14,6 +14,7 @@
 #include "noodle.h"
 
 
+int member::id_auto = 0;
 int main() {
     date order{};
     order.day = 10;
@@ -31,7 +32,9 @@ int main() {
     produse1.emplace_back(std::make_shared<noodle>(1,name,country,qty,price,'y'));
     produse1.emplace_back(std::make_shared<sriracha>(1,name,country,100,10,"plastic"));
     produse1[2]->display();
-    std::cout<<*std::dynamic_pointer_cast<noodle>(produse1[3])<<std::endl;
+    std::dynamic_pointer_cast<matcha>(produse1[1])->discount(20);
+    //discount 2 lei peste reducerea initiala->discount(19);
+    std::cout<<*produse1[1]<<std::endl;
 
     purchase cumparaturi(produse1, 1, 1, 100, order, 20, 'Y', 3);
     supplier aprovizionare(*produse1[0], 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
@@ -39,20 +42,21 @@ int main() {
     std::cout<<angajat<<std::endl;
     angajat.setSalary(10);
     angajat.display(angajat);
-    member membru1(1, "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
+    member membru1( "Rares1", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     member aux = membru1;
-    member membru2(1, "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
-    member membru3(1, "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
+    member membru2( "Rares2", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
+    member membru3( "Rares3", "Strada Unirii", "Bucuresti", "Romania", 1234567, order, order);
     aux.add_mem(membrii, aux);
     membru1.add_mem(membrii, membru1);
     membru2.add_mem(membrii, membru2);
     membru3.add_mem(membrii, membru3);
+    std::cout<<membru3<<std::endl;
     membru2.search_mem(membrii, membru2);
     try{
         produse1[1]->discount(30);
     }
-    catch (...){
-        std::cout<<"nu a mers";
+    catch (eroare_discount_matcha &e){
+        std::cout<<e.what();
     }
 
     return 0;

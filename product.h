@@ -7,14 +7,9 @@
 #include <ostream>
 #include <vector>
 #include <iostream>
-class MyException : public std::exception
-{
-public:
-    const char * what () const throw ()
-    {
-        return "Eroare discount";
-    }
-};
+
+class MyException : public std::runtime_error { using std::runtime_error::runtime_error; };
+class eroare_discount_produs: public MyException {using MyException::MyException;};
 class product
 {
     int id;	//Primary Key, in caz ca o sa implementez si un
@@ -61,7 +56,7 @@ public:
     }
     virtual void discount(int percent){
         if(percent>99)
-            throw MyException();
+            throw eroare_discount_produs("eroare discount produs");
         else {
             float oldPrice = getPrice();
             float newPrice = (oldPrice * 100 - oldPrice * percent) / 100;

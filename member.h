@@ -10,7 +10,8 @@
 #include "date.h"
 class member //magazin membership-only ca la Metro
 {
-    const int id;				//Primary Key
+    static int id_auto;
+    int id;				//Primary Key
     std::string name;
     std::string addr_line;
     std::string city;
@@ -19,8 +20,9 @@ class member //magazin membership-only ca la Metro
     date beg_date;
     date end_date;
 public:
-    member(int id, const std::string &name, const std::string &addrLine, const std::string &city, const std::string &state, long phn,
-           const date &begDate, const date &endDate) : id(id), name(name), addr_line(addrLine), city(city),
+    member() : id(++id_auto){};
+    member(const std::string &name, const std::string &addrLine, const std::string &city, const std::string &state, long phn,
+           const date &begDate, const date &endDate) : id(++id_auto), name(name), addr_line(addrLine), city(city),
                                                        state(state), phone(phn), beg_date(begDate), end_date(endDate) {}
 
     virtual ~member() {

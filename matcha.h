@@ -6,7 +6,7 @@
 #define TEMA1_MATCHA_H
 #include "product.h"
 #include <ostream>
-
+class eroare_discount_matcha:public MyException{using MyException::MyException;};
 class matcha:public product{
     char milk;//A-yes F-no
 public:
@@ -32,11 +32,14 @@ public:
     }
     void discount(int percent) override{
         if(percent>20)
-            throw "Discount peste 20";
+            throw eroare_discount_matcha("Discount peste 20");
         else {
             float oldPrice = getPrice();
             float newPrice = (oldPrice * 100 - oldPrice * percent) / 100;
-            matcha::price = newPrice;
+            if(newPrice > 2)
+                matcha::price = newPrice -2 ;
+            else
+                matcha::price = newPrice;
         }
     }
 };
