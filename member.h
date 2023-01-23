@@ -20,7 +20,6 @@ class member //magazin membership-only ca la Metro
     date beg_date;
     date end_date;
 public:
-    member() : id(++id_auto){};
     member(const std::string &name, const std::string &addrLine, const std::string &city, const std::string &state, long phn,
            const date &begDate, const date &endDate) : id(++id_auto), name(name), addr_line(addrLine), city(city),
                                                        state(state), phone(phn), beg_date(begDate), end_date(endDate) {}
