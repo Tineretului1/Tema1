@@ -33,7 +33,18 @@ int main() {
     produse1.emplace_back(std::make_shared<sriracha>(1,name,country,100,10,"plastic"));
     produse1[2]->display();
     try {
-        std::dynamic_pointer_cast<matcha>(produse1[1])->discount(20);
+        std::shared_ptr<matcha> trial = std::dynamic_pointer_cast<matcha>(produse1[1]);
+        if(trial)
+           trial->discount(20);
+        else
+            std::cout<<std::endl<<"Nu a mers nu ai facut corect cast gresit, cast gresit!\n";
+
+        std::shared_ptr<matcha> trialProst = std::dynamic_pointer_cast<matcha>(produse1[2]);
+        if(trialProst)
+            trial->discount(20);
+        else
+            std::cout<<std::endl<<"Nu a mers nu ai facut corect cast gresit, cast gresit!\n";
+//      std::dynamic_pointer_cast<matcha>(produse1[1])->discount(20);
 
     }//discount 2 lei peste reducerea initiala->discount(19);
     catch (const myException &e){
