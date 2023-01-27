@@ -120,7 +120,8 @@ class productDecorator : public product {
     std::shared_ptr<product> decoratedProduct;
 
 public:
-    productDecorator(std::shared_ptr<product> decoratedProduct) : decoratedProduct(decoratedProduct) {}
+    productDecorator() = default;
+    explicit productDecorator(std::shared_ptr<product> decoratedProduct) : decoratedProduct(decoratedProduct) {}
 
     int getPrice() const {
         return decoratedProduct->getPrice();
