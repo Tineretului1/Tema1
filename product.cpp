@@ -17,3 +17,5 @@ product::product(const product& other) : id{other.id}, name{other.name}, country
 const std::string &product::getName() const {
     return name;
 }
+
+product::product() {}
