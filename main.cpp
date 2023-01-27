@@ -60,7 +60,7 @@ int main() {
     
     ProductBuilder builder;
     product& product2 = builder.setId(1).setName("Product 1").setCountry("USA").setQty(10).setPrice(100.0).build();
-
+    std::cout<<product2<<std::endl;
     purchase cumparaturi(produse1, 1, 1, 100, order, 20, 'Y', 3);
     supplier aprovizionare(*produse1[0], 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
