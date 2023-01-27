@@ -94,11 +94,11 @@ public:
         p.id = id;
         return *this;
     }
-    ProductBuilder& setName(std::string name) {
+    ProductBuilder& setName(const std::string &name) {
         p.name = name;
         return *this;
     }
-    ProductBuilder& setCountry(std::string country) {
+    ProductBuilder& setCountry(const std::string &country) {
         p.country = country;
         return *this;
     }
@@ -143,11 +143,11 @@ public:
         return !(rhs == *this);
     }
 
-    void discount(int percent) {
+    void discount(int percent) override{
         decoratedProduct->discount(percent);
     }
 
-    void display() {
+    void display() override{
         decoratedProduct->display();
     }
 
