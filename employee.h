@@ -50,11 +50,7 @@ public:
 
     bool operator!=(const employee &rhs) const;
 
-    void search_mem(const std::vector <employee>& vector, const employee &angajat){
-        for(long unsigned int i = 0; i<vector.size(); i++)
-            if(angajat == vector[i])
-                std::cout<<"exista"<<'\n';
-    };    //cauta angajat
+    //cauta angajat
     void assign_mgr_stat(const std::string &status){
         setMgrStatus(status);
     }; //rol manager

@@ -22,6 +22,7 @@ void applyDiscount(std::vector<std::shared_ptr<product>>& produse, int index, in
     else
         std::cout<<"Invalid cast, cannot apply discount"<<std::endl;
 }
+
 int member::id_auto = 0;
 
 template <typename Iter, typename T, typename Compare = std::equal_to<T>>
@@ -41,16 +42,20 @@ int main() {
     order.year = 2010;
 
     std::vector <member> membrii;
-
     std::vector <std::shared_ptr<product>> produse1;
+
     int qty=100, price=5;
     std::string name="moji",country="china";
     produse1.emplace_back(std::make_shared<ramen>(1,name,country,qty,price,"gaina"));
     produse1.emplace_back(std::make_shared<matcha>(1,name,country,qty,price,'a'));
     produse1.emplace_back(std::make_shared<tea>(1,name,country,qty,price,"green"));
     produse1.emplace_back(std::make_shared<noodle>(1,name,country,qty,price,'y'));
-    produse1.emplace_back(std::make_shared<sriracha>(1,name,country,100,10,"plastic"));
-    //produse1[2]->display();
+    produse1.emplace_back(std::make_shared<sriracha>(14,name,country,100,130,"plastic"));
+
+    std::shared_ptr<product> produsul = produse1[4];
+    produsul->display();
+    produsul->discount(50);
+    produsul->display();
     try {
         applyDiscount(produse1, 0, 20);
         applyDiscount(produse1, 1, 20);

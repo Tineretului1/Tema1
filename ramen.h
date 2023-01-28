@@ -31,11 +31,7 @@ public:
         return !(rhs == *this);
     }
 
-    void display() override{
-        std::cout<<"Id ramen: ";
-        product::display();
-        std::cout<<std::endl;
-    }
+
 };
 
 

@@ -71,6 +71,9 @@ public:
             product::price = newPrice;
         }
     }
+    virtual void display(){
+        std::cout<<"Produsul este: " << getName() <<" Si costa: " << getPrice()<<'\n';
+    }
 
     void add(std::vector <product>& vector, product produs) {
         vector.push_back(produs);
@@ -78,15 +81,7 @@ public:
     void update_price(int x){
         product::price = x;
     } //schimbare pret
-    static void search(const std::vector <product>& vector, const product &angajat){
-        for(long unsigned int i = 0; i<vector.size(); i++)
-            if(angajat == vector[i])
-                std::cout<<"exista"<<'\n';
-    }
 
-    virtual void display(){
-        std::cout<<id;
-    } //afisam produs
 };
 
 class ProductBuilder {
