@@ -23,6 +23,9 @@ class product
 protected:
     float price;
 public:
+    int getQty() const;
+
+    void setQty(int qty_);
 
     int getPrice() const {
         return price;
@@ -123,37 +126,18 @@ public:
     productDecorator() = default;
     explicit productDecorator(std::shared_ptr<product> decoratedProduct) : decoratedProduct(decoratedProduct) {}
 
-    int getPrice() const {
-        return decoratedProduct->getPrice();
-    }
 
-    const std::string &getName() const {
-        return decoratedProduct->getName();
-    }
-
-    friend std::ostream &operator<<(std::ostream &os, const productDecorator &decorator) {
-        os << *decorator.decoratedProduct;
-        return os;
-    }
-
-    bool operator==(const productDecorator &rhs) const {
-        return *decoratedProduct == *rhs.decoratedProduct;
-    }
-
-    bool operator!=(const productDecorator &rhs) const {
-        return !(rhs == *this);
-    }
-
-    void discount(int percent) override{
-        decoratedProduct->discount(percent);
-    }
 
     void display() override{
-        decoratedProduct->display();
+        std::cout<<"Pretul produsului este "<<decoratedProduct->getPrice();
     }
 
     float vat(int percent) {
         return ((100 + percent * 1.0) / 100) * (decoratedProduct->getPrice());
+    }
+
+    float pretTotal(){
+        return decoratedProduct->getPrice()*decoratedProduct->getQty();
     }
 };
 

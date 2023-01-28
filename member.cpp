@@ -3,7 +3,7 @@
 //
 
 #include "member.h"
-void member::add_mem(std::vector <member>& vector, member membru) {
+void member::add_mem(std::vector <member>& vector,member membru) {
     vector.push_back(membru);
 }
 

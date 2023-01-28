@@ -19,3 +19,11 @@ const std::string &product::getName() const {
 }
 
 product::product() {}
+
+int product::getQty() const {
+    return qty;
+}
+
+void product::setQty(int qty_) {
+    product::qty = qty_;
+}

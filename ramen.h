@@ -30,9 +30,7 @@ public:
     bool operator!=(const ramen &rhs) const {
         return !(rhs == *this);
     }
-    void discount(int percent) override{
-        product::discount(percent);
-    };
+
     void display() override{
         std::cout<<"Id ramen: ";
         product::display();

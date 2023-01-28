@@ -13,8 +13,26 @@
 #include "tea.h"
 #include "noodle.h"
 
-
+void applyDiscount(std::vector<std::shared_ptr<product>>& produse, int index, int discount) {
+    std::shared_ptr<ramen> trial = std::dynamic_pointer_cast<ramen>(produse[index]);
+    if(trial){
+        trial->discount(discount);
+        std::cout<<*trial<<std::endl;
+    }
+    else
+        std::cout<<"Invalid cast, cannot apply discount"<<std::endl;
+}
 int member::id_auto = 0;
+template <typename Iter>
+Iter search_mem(Iter first, Iter last, const member &membru) {
+    auto it = std::find_if(first, last, [&](const member &m) { return m == membru; });
+    if (it != last) {
+        return it;
+    } else {
+        return last;
+    }
+}
+
 int main() {
     date order{};
     order.day = 10;
@@ -31,36 +49,37 @@ int main() {
     produse1.emplace_back(std::make_shared<tea>(1,name,country,qty,price,"green"));
     produse1.emplace_back(std::make_shared<noodle>(1,name,country,qty,price,'y'));
     produse1.emplace_back(std::make_shared<sriracha>(1,name,country,100,10,"plastic"));
-    produse1[2]->display();
+    //produse1[2]->display();
     try {
-        std::shared_ptr<matcha> trial = std::dynamic_pointer_cast<matcha>(produse1[1]);
-        if(trial)
-           trial->discount(20);
-        else
-            std::cout<<std::endl<<"Nu a mers nu ai facut corect cast gresit, cast gresit!\n";
-
-        std::shared_ptr<matcha> trialProst = std::dynamic_pointer_cast<matcha>(produse1[2]);
-        if(trialProst)
-            trial->discount(20);
-        else
-            std::cout<<std::endl<<"Nu a mers nu ai facut corect cast gresit, cast gresit!\n";
-//      std::dynamic_pointer_cast<matcha>(produse1[1])->discount(20);
-
-    }//discount 2 lei peste reducerea initiala->discount(19);
+        applyDiscount(produse1, 0, 20);
+        applyDiscount(produse1, 1, 20);
+    }
     catch (const myException &e){
         std::cout<<e.what()<<std::endl;
     }
-    std::cout<<*produse1[1]<<std::endl;
+    //std::cout<<*produse1[1]<<std::endl;
 
     productDecorator a = productDecorator(produse1[1]);
-    std::cout<<std::endl<<a.vat(19)<<std::endl;
+    std::cout<<a.vat(19)<<std::endl;
+    std::cout<<a.pretTotal()<<std::endl;
 
-    product asaDa = asian_products_factory::create_asian_carpet();
-    std::cout<<asaDa<<std::endl;
+    product vietnamese_chair = asian_products_factory::create_vietnamese_chair();
+    product chinese_table = asian_products_factory::create_chinese_table();
+    product japanese_table = asian_products_factory::create_japanese_table();
+    product korean_chair = asian_products_factory::create_korean_chair();
+    product asian_carpet = asian_products_factory::create_asian_carpet();
+
+    std::cout << vietnamese_chair.getName() << std::endl;
+    std::cout << chinese_table.getName() << std::endl;
+    std::cout << japanese_table.getName() << std::endl;
+    std::cout << korean_chair.getName() << std::endl;
+    std::cout << asian_carpet.getName() << std::endl;
 
     ProductBuilder builder;
     product product2 = builder.setId(1).setName("Product 1").setCountry("USA").setQty(10).setPrice(100.0).build();
+    product product3 = builder.setPrice(102.0).setQty(19).setName("Product 3").setId(5).setCountry("USA").build();
     std::cout<<product2<<std::endl;
+    std::cout<<product3<<std::endl;
     purchase cumparaturi(produse1, 1, 1, 100, order, 20, 'Y', 3);
     supplier aprovizionare(*produse1[0], 1, "kaufland", 123456, "Strada Unirii", "Bucuresti", "Romania");
     employee angajat(1, "Rares", "Strada Unirii", "Bucuresti", 19293929, order, 3000, "A");
@@ -75,14 +94,11 @@ int main() {
     membru1.add_mem(membrii, membru1);
     membru2.add_mem(membrii, membru2);
     membru3.add_mem(membrii, membru3);
-    std::cout<<membru3<<std::endl;
-    membru2.search_mem(membrii, membru2);
-    try{
-        produse1[1]->discount(30);
-    }
-    catch (const myException &e){
-        std::cout<<e.what();
-    }
 
+    //membru2.search_mem(membrii, membru2);
+    auto it = search_mem(membrii.begin(), membrii.end(), membru2);
+    if (it != membrii.end()) {
+        std::cout << "exista" << '\n';
+    }
     return 0;
 }
