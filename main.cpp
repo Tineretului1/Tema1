@@ -23,9 +23,10 @@ void applyDiscount(std::vector<std::shared_ptr<product>>& produse, int index, in
         std::cout<<"Invalid cast, cannot apply discount"<<std::endl;
 }
 int member::id_auto = 0;
-template <typename Iter>
-Iter search_mem(Iter first, Iter last, const member &membru) {
-    auto it = std::find_if(first, last, [&](const member &m) { return m == membru; });
+
+template <typename Iter, typename T, typename Compare = std::equal_to<T>>
+Iter search2(Iter first, Iter last, const T &find, Compare comp = Compare()) {
+    auto it = std::find_if(first, last, [&](const T &m) { return comp(m, find); });
     if (it != last) {
         return it;
     } else {
@@ -96,9 +97,16 @@ int main() {
     membru3.add_mem(membrii, membru3);
 
     //membru2.search_mem(membrii, membru2);
-    auto it = search_mem(membrii.begin(), membrii.end(), membru2);
+    auto it = search2(membrii.begin(), membrii.end(), membru2);
     if (it != membrii.end()) {
         std::cout << "exista" << '\n';
     }
+        std::cout<<"nu exista" << '\n';
+    auto ec = search2(produse1.begin(), produse1.end(), produse1[2]);
+    if (ec != produse1.end()) {
+        std::cout << "exista" << '\n';
+    }
+    else
+        std::cout<<"nu exista" << '\n';
     return 0;
 }
